@@ -1,0 +1,10 @@
+﻿<h1>Hi {{currentUser.firstName}}!</h1>
+<h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a *ngIf="currentUser.userName != user.userName" href="javaScript:void(0);" (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+        <a *ngIf="currentUser.userName == user.userName" href="javaScript:void(0);" [routerLink]="['/login']" (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+<p><a [routerLink]="['/login']">Logout</a></p>
